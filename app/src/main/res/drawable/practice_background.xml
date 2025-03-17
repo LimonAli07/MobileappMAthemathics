@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    
+    <!-- Green gradient background for practice mode -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M0,0h800v400h-800z"/>
+    
+    <!-- School elements -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,100h600v250h-600z"/>
+    
+    <!-- Math symbols -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M200,150l30,0l0,30l30,0l0,30l-30,0l0,30l-30,0l0,-30l-30,0l0,-30l30,0z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M350,150l80,0l0,30l-80,0z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M350,210l80,0l0,30l-80,0z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M550,150l30,60l-60,0z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M550,210m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0"/>
+</vector> 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    
+    <!-- Gradient background for results screen -->
+    <path
+        android:fillColor="#3F51B5"
+        android:pathData="M0,0h800v400h-800z"/>
+    
+    <!-- Star elements for celebration -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M150,150l30,-90l30,90l90,0l-75,55l30,90l-75,-55l-75,55l30,-90l-75,-55z"/>
+    
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M400,100l20,-60l20,60l60,0l-50,35l20,60l-50,-35l-50,35l20,-60l-50,-35z"/>
+    
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M600,200l30,-90l30,90l90,0l-75,55l30,90l-75,-55l-75,55l30,-90l-75,-55z"/>
+</vector> 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    
+    <!-- Blue gradient background -->
+    <path
+        android:fillColor="#1976D2"
+        android:pathData="M0,0h800v400h-800z"/>
+    
+    <!-- Text instruction -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M400,200m-150,0a150,150 0,1 1,300 0a150,150 0,1 1,-300 0"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M320,170h160v20h-160z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M320,200h160v20h-160z"/>
+    
+    <path
+        android:fillColor="#000000"
+        android:pathData="M320,230h160v20h-160z"/>
+</vector> 

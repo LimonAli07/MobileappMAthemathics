@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    
+    <!-- Red background for expert mode -->
+    <path
+        android:fillColor="#F44336"
+        android:pathData="M0,0h800v400h-800z"/>
+    
+    <!-- Trophy elements -->
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M350,100h100v180h-100z"/>
+    
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M300,100h200v60h-200z"/>
+    
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M330,280h140v20h-140z"/>
+    
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M370,300h60v40h-60z"/>
+    
+    <path
+        android:fillColor="#FFC107"
+        android:pathData="M320,340h160v20h-160z"/>
+</vector> 

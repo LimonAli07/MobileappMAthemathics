@@ -5,7 +5,10 @@ data class Question(
     val secondNumber: Int,
     val operation: Operation,
     val answer: Int
-)
+) {
+    val text: String
+        get() = "$firstNumber ${operation.symbol} $secondNumber = ?"
+}
 
 enum class Operation(val symbol: String) {
     ADD("+"),

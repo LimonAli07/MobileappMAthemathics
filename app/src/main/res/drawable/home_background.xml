@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="800dp"
+    android:height="400dp"
+    android:viewportWidth="800"
+    android:viewportHeight="400">
+    
+    <!-- Sky background -->
+    <path
+        android:fillColor="#B3E5FC"
+        android:pathData="M0,0h800v400h-800z"/>
+    
+    <!-- Snow ground -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,300h800v100h-800z"/>
+    
+    <!-- Road -->
+    <path
+        android:fillColor="#424242"
+        android:pathData="M0,350h800v30h-800z"/>
+    
+    <!-- Road markings -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,365h60v5h-60z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M200,365h60v5h-60z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M350,365h60v5h-60z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M500,365h60v5h-60z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M650,365h60v5h-60z"/>
+    
+    <!-- Clouds -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,100a50,30 0,1 0,100 0a50,30 0,1 0,-100 0z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M500,80a70,40 0,1 0,140 0a70,40 0,1 0,-140 0z"/>
+    
+    <!-- Trees -->
+    <path
+        android:fillColor="#795548"
+        android:pathData="M40,300v-40h10v40z"/>
+    
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M30,270l15,-30l15,30z"/>
+    
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M30,250l15,-30l15,30z"/>
+    
+    <path
+        android:fillColor="#795548"
+        android:pathData="M740,300v-40h10v40z"/>
+    
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M730,270l15,-30l15,30z"/>
+    
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M730,250l15,-30l15,30z"/>
+    
+    <!-- Snowman -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M600,280a20,20 0,1 0,40 0a20,20 0,1 0,-40 0z"/>
+    
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M610,250a15,15 0,1 0,30 0a15,15 0,1 0,-30 0z"/>
+</vector> 

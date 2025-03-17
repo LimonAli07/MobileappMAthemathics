@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import com.example.androidquestiongame.model.Question
 import com.example.androidquestiongame.model.generateQuestion
 import com.example.androidquestiongame.util.SoundManager
+import java.time.LocalDate
 
 class GameViewModel : ViewModel() {
     var currentQuestion by mutableStateOf<Question?>(null)
@@ -26,12 +27,24 @@ class GameViewModel : ViewModel() {
         private set
     var isGameOver by mutableStateOf(false)
         private set
+    var streak by mutableStateOf(0)
+        private set
+    private var lastPlayedDate: String? = null
+    var showAnswerAnimation by mutableStateOf(false)
+        private set
+    var isCorrectAnswer by mutableStateOf(false)
+        private set
     
     private var timerJob: Job? = null
     private var soundManager: SoundManager? = null
+    private var totalTimeElapsed = 0
 
     fun initialize(context: Context) {
         soundManager = SoundManager(context)
+        val prefs = context.getSharedPreferences("game_prefs", Context.MODE_PRIVATE)
+        streak = prefs.getInt("streak", 0)
+        lastPlayedDate = prefs.getString("last_played_date", null)
+        checkAndUpdateStreak(context)
     }
 
     fun startGame(level: Int) {
@@ -39,47 +52,90 @@ class GameViewModel : ViewModel() {
         score = 0
         questionsAnswered = 0
         isGameOver = false
-        nextQuestion()
+        totalTimeElapsed = 0
+        generateNewQuestion()
+        startTimer()
     }
 
-    private fun nextQuestion() {
-        if (questionsAnswered >= 10) {
-            isGameOver = true
-            return
-        }
+    fun handleAnswer(answer: Int?) {
+        if (answer == null || currentQuestion == null) return
         
-        currentQuestion = generateQuestion()
-        when (gameLevel) {
-            1 -> startTimer(20)
-            2 -> startTimer(10)
-        }
-    }
-
-    private fun startTimer(seconds: Int) {
-        timerJob?.cancel()
-        timeLeft = seconds
+        isCorrectAnswer = answer == currentQuestion?.answer
+        showAnswerAnimation = true
         
-        timerJob = viewModelScope.launch {
-            while (timeLeft!! > 0) {
-                delay(1000)
-                timeLeft = timeLeft!! - 1
-                if (timeLeft == 0) {
-                    handleAnswer(null)
-                }
-            }
-        }
-    }
-
-    fun handleAnswer(userAnswer: Int?) {
-        timerJob?.cancel()
-        if (userAnswer == currentQuestion?.answer) {
+        if (isCorrectAnswer) {
             score++
             soundManager?.playCorrectSound()
         } else {
             soundManager?.playIncorrectSound()
         }
+        
         questionsAnswered++
-        nextQuestion()
+        
+        if (questionsAnswered >= 10) {
+            isGameOver = true
+            timerJob?.cancel()
+        } else {
+            generateNewQuestion()
+            // Reset timer for the next question
+            startTimer()
+        }
+    }
+
+    private fun generateNewQuestion() {
+        currentQuestion = generateQuestion()
+    }
+
+    private fun startTimer() {
+        timerJob?.cancel()
+        
+        // Set time per question based on level
+        when (gameLevel) {
+            0 -> timeLeft = null  // No time limit
+            1 -> timeLeft = 20    // 20 seconds per question
+            2 -> timeLeft = 10    // 10 seconds per question
+        }
+        
+        if (timeLeft != null) {
+            timerJob = viewModelScope.launch {
+                val questionStartTime = timeLeft
+                while (timeLeft!! > 0 && !isGameOver) {
+                    delay(1000)
+                    timeLeft = timeLeft!! - 1
+                    totalTimeElapsed++
+                    
+                    if (timeLeft == 0) {
+                        // If time runs out for this question, move to next
+                        // or end game if it was the last question
+                        if (questionsAnswered >= 9) {
+                            isGameOver = true
+                        } else {
+                            questionsAnswered++
+                            generateNewQuestion()
+                            // Reset timer for next question
+                            timeLeft = questionStartTime
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun checkAndUpdateStreak(context: Context) {
+        val today = LocalDate.now().toString()
+        val yesterday = LocalDate.now().minusDays(1).toString()
+        
+        when (lastPlayedDate) {
+            today -> return
+            yesterday -> streak++
+            else -> streak = 1
+        }
+        
+        context.getSharedPreferences("game_prefs", Context.MODE_PRIVATE)
+            .edit()
+            .putInt("streak", streak)
+            .putString("last_played_date", today)
+            .apply()
     }
 
     override fun onCleared() {

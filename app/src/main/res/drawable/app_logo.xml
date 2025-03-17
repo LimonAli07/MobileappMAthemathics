@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Background Circle -->
+    <path
+        android:fillColor="@color/white"
+        android:pathData="M100,100m-95,0a95,95 0,1 1,190 0a95,95 0,1 1,-190 0" />
+
+    <!-- Math Symbols Group -->
+    <group
+        android:pivotX="100"
+        android:pivotY="100">
+        
+        <!-- Plus Symbol -->
+        <path
+            android:fillColor="#FF1976D2"
+            android:pathData="M85,45L115,45A5,5 0,0 1,120 50L120,80A5,5 0,0 1,115 85L85,85A5,5 0,0 1,80 80L80,50A5,5 0,0 1,85 45z" />
+        <path
+            android:fillColor="#FF1976D2"
+            android:pathData="M45,85L75,85A5,5 0,0 1,80 90L80,120A5,5 0,0 1,75 125L45,125A5,5 0,0 1,40 120L40,90A5,5 0,0 1,45 85z" />
+
+        <!-- Multiplication Symbol -->
+        <path
+            android:fillColor="#FFFF9800"
+            android:pathData="M125,115L145,135A5,5 0,0 1,145 142L142,145A5,5 0,0 1,135 145L115,125A5,5 0,0 1,115 118L118,115A5,5 0,0 1,125 115z" />
+        <path
+            android:fillColor="#FFFF9800"
+            android:pathData="M115,135L135,115A5,5 0,0 1,142 115L145,118A5,5 0,0 1,145 125L125,145A5,5 0,0 1,118 145L115,142A5,5 0,0 1,115 135z" />
+
+        <!-- Division Symbol -->
+        <path
+            android:fillColor="#FF4CAF50"
+            android:pathData="M150,85L180,85A5,5 0,0 1,185 90L185,95A5,5 0,0 1,180 100L150,100A5,5 0,0 1,145 95L145,90A5,5 0,0 1,150 85z" />
+        <path
+            android:fillColor="#FF4CAF50"
+            android:pathData="M165,70a7,7 0,1 1,0 -14a7,7 0,0 1,0 14z" />
+        <path
+            android:fillColor="#FF4CAF50"
+            android:pathData="M165,114a7,7 0,1 1,0 -14a7,7 0,0 1,0 14z" />
+
+        <!-- Minus Symbol -->
+        <path
+            android:fillColor="#FFF44336"
+            android:pathData="M85,135L115,135A5,5 0,0 1,120 140L120,145A5,5 0,0 1,115 150L85,150A5,5 0,0 1,80 145L80,140A5,5 0,0 1,85 135z" />
+    </group>
+</vector> 
